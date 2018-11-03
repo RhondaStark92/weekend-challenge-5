@@ -22,6 +22,7 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div>
         <BrowserRouter>
@@ -33,7 +34,7 @@ class App extends Component {
             <br/>
             <div className="content">
               <Route exact path="/" component={Feedback}/>
-              <Route path="/1" component={Feedback}/>
+              <Route exact path="/:id" component={Feedback}/>
             </div>
             <div>
               <button>Next</button>
