@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { connect } from 'react-redux';
+import {
+  Route,
+  // NavLink,
+  // HashRouter,
+  BrowserRouter,
+} from "react-router-dom";
+
 // import FeedbackHeader from '../FeedbackHeader/FeedbackHeader';
-// import Feedback from '../Feedback/Feedback';
+import Feedback from '../Feedback/Feedback';
 
 
 class App extends Component {
@@ -16,12 +23,23 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
-        </header>
-        <br/>
+      <div>
+        <BrowserRouter>
+          <div className="App">
+            <header className="App-header">
+              <h1 className="App-title">Feedback!</h1>
+              <h4><i>Don't forget it!</i></h4>
+            </header>
+            <br/>
+            <div className="content">
+              <Route exact path="/" component={Feedback}/>
+              <Route path="/1" component={Feedback}/>
+            </div>
+            <div>
+              <button>Next</button>
+            </div>
+          </div>
+        </BrowserRouter>
       </div>
     );
   }
