@@ -30,16 +30,21 @@ class Feedback extends Component {
         if(typeof this.props.match.params.id === "undefined") {
             i = 0;
             pageHeading = <p>1 of 4 pages</p>;
-            button = <button onClick={ () => {this.handleSubmit('/1')}}>Next 1</button>
+            button = <button onClick={ () => {this.handleSubmit('/1')}}>Next</button>
         } else {
             // is a number so convert the parameter to a number
             let pageNum = parseInt(this.props.match.params.id);
             
             if (pageNum === 1 || pageNum === 2 || pageNum === 3 ) {
                 i = pageNum;
+                let buttonText = 'Next';
+                if (pageNum === 3) {
+                    buttonText = 'Submit'
+                };
                 nextPage = '/' + (pageNum + 1);
                 pageHeading = <p>{pageNum + 1} of 4 pages</p>;
-                button = <button onClick={ () => {this.handleSubmit(nextPage)}}>Next {pageNum + 1}</button>
+                
+                button = <button onClick={ () => {this.handleSubmit(nextPage)}}>{buttonText}</button>
             } else if (pageNum === 4) {
                 i = 4;
                 pageHeading = <p>Thanks!</p>;
@@ -55,7 +60,7 @@ class Feedback extends Component {
             <div>
                 {pageHeading}
                 {questionPrompt}
-                <input placeholder="Enter 1 to 5" name ="feelingAnswer"></input>
+                {(i != 4) ? <input placeholder="Enter 1 to 5" name ="feelingAnswer"></input> : ''}
                 {button}
             </div>
         );
