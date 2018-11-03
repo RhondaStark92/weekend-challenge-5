@@ -36,9 +36,6 @@ class App extends Component {
               <Route exact path="/" component={Feedback}/>
               <Route exact path="/:id" component={Feedback}/>
             </div>
-            <div>
-              <button>Next</button>
-            </div>
           </div>
         </BrowserRouter>
       </div>
