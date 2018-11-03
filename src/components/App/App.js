@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import { connect } from 'react-redux';
+// import FeedbackHeader from '../FeedbackHeader/FeedbackHeader';
+// import Feedback from '../Feedback/Feedback';
+
 
 class App extends Component {
+  
+  componentDidMount() {
+    // Do I need to do anything here?
+    console.log('in app component mount');
+    
+  }
+
   render() {
     return (
       <div className="App">
@@ -16,4 +27,6 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = reduxState => ({ reduxState });
+
+export default connect(mapStateToProps)(App);
