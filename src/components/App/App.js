@@ -5,8 +5,7 @@ import { connect } from 'react-redux';
 import {
   Route,
   // NavLink,
-  // HashRouter,
-  BrowserRouter,
+  BrowserRouter as Router,
 } from "react-router-dom";
 
 // import FeedbackHeader from '../FeedbackHeader/FeedbackHeader';
@@ -18,14 +17,13 @@ class App extends Component {
   componentDidMount() {
     // Do I need to do anything here?
     console.log('in app component mount');
-    
   }
 
   render() {
 
     return (
       <div>
-        <BrowserRouter>
+        <Router>
           <div className="App">
             <header className="App-header">
               <h1 className="App-title">Feedback!</h1>
@@ -37,7 +35,7 @@ class App extends Component {
               <Route exact path="/:id" component={Feedback}/>
             </div>
           </div>
-        </BrowserRouter>
+        </Router>
       </div>
     );
   }
