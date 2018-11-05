@@ -27,9 +27,9 @@ const feedbackReducer = (state = [], action) => {
   const pageNumberReducer = (state = {}, action) => {
     if ( action.type  === 'GET_PAGENUMBER' ) {
         console.log('PAGENUMBERREDUCER', action.payload);
-        let pageNum = 0;
-        let nextButton = '';
-        let nextPath = '';
+        let pageNum = 1;
+        let nextButton = 'Next';
+        let nextPath = '/1';
         // action payload should be the array from the server
         if (typeof action.payload === "undefined") {
             pageNum = 1;
@@ -51,7 +51,7 @@ const feedbackReducer = (state = [], action) => {
             'nextPath': nextPath
         };
     }
-    console.log('final state', state);
+    // console.log('final state', state);
     // For any other action type, just return the current state
     return state;
 }
